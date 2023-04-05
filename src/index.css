@@ -1,0 +1,62 @@
+/* 전체 화면 마진, 패딩 제거 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.dndflow {
+  display: flex;
+  flex-grow: 1;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* 노드 컴포넌트 */
+.dndflow .dndnode {
+  height: 30px;
+  padding: 4px;
+  border-radius: 2px;
+  margin: 3% 18%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+  border-radius: 10px;
+  font-size: 20px;
+  box-shadow: 7px 7px 7px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dndflow .dndnode.Convolutional {
+  background-color: #f2e3dc;
+}
+
+.dndflow .dndnode.Pooling {
+  background-color: #faf1cb;
+}
+
+.dndflow .dndnode.Activiation {
+  background-color: #d9e3e8;
+}
+
+.dndflow .dndnode.Normalization {
+  background-color: #dee8e4;
+}
+
+
+.dndflow .selectall {
+  margin-top: 10px;
+}
+
+.react-flow .react-flow__handle {
+  width: 3px;
+  height: 3px;
+  border-color: #79797a;
+  background-color: #ffffff00;
+}
+
+/*@media screen and (min-width: 250px) {
+  .dndflow {
+    font-family: sans-serif;
+    flex-direction: row-reverse;
+  }
+}*/
