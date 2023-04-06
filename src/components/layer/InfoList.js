@@ -19,7 +19,7 @@ function InfoList(props) {
       <div className="layer_list">
         <div className="tab_title">Network Information</div>
         <div className="layer_content">YOLOv5</div>
-        <img className="tab_image" src={YOLOv5} alt="yolov5" />
+        <img className="yolo_image" src={YOLOv5} alt="yolov5" />
       </div>
       <div className="layer_info">
         <div className="layer_info_title">Layer Information</div>

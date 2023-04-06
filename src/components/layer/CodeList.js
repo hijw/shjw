@@ -19,14 +19,24 @@ function CodeList(props) {
         <div className="tab_title">Code</div>
         <div className="layer_content">Framework</div>
         <br />
-        <button>Pytorch</button>
-        <button>Tensorflow</button>
+
+        <div className="layer_button_div">
+          <button type="button" className="btn1">
+            Pytorch
+          </button>
+          <button type="button" className="btn1">
+            Tensorflow
+          </button>
+        </div>
+
         <br />
         <br />
         <div className="layer_content">Code</div>
         <br />
         <div className="code_box">
-          Conv2d(3, 64, kernel_size=(3,3), stride=(1,1), bias=False)
+          <div className="code_box_text">
+            Conv2d(3, 64, kernel_size=(3,3), stride=(1,1), bias=False)
+          </div>
         </div>
       </div>
 

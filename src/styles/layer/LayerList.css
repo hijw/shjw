@@ -60,10 +60,24 @@ details > summary {
 .code_box {
   width: 80%;
   height: 20%;
-
+  margin-left: 10%;
   background-color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
 }
 
-.tab_image {
-  width: 200px;
+.code_box_text {
+  text-align: center;
+}
+.layer_button_div {
+  text-align: center;
+}
+
+.layer_button_div .btn1 {
+  display: inline-block;
+  width: 40%;
+  border: 1px solid grey;
+  margin: 3px;
+  border-radius: 10px;
 }
