@@ -5,7 +5,7 @@ import MyModal from "../components/common/MyModal";
 import "../styles/common/Modifier.css";
 import "../styles/layer/Layer.css";
 import Modifier from "../components/common/Modifier";
-import LayerList from "../components/layer/LayerList";
+import CodeList from "../components/layer/CodeList";
 
 function Code(props) {
   const [show, setShow] = useState(false);
@@ -28,7 +28,7 @@ function Code(props) {
     <div className="layer_outer_container">
       <div className="aside_function_container">
         {/* 토글 관련 컴포넌트 */}
-        <LayerList />
+        <CodeList />
       </div>
       {/* 노드 화면에 띄우는 컴포넌트 */}
       <div className="info_outer_container">
