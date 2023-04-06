@@ -2,7 +2,6 @@ aside {
   display: flex;
   font-size: 12px;
   width: 100%;
-  border: 3px solid purple;
 }
 
 aside .tab {
@@ -11,7 +10,6 @@ aside .tab {
   width: 4%;
   height: 100%;
   background-color: #4e5058;
-  border: 3px solid red;
 }
 
 aside .tab_image {
