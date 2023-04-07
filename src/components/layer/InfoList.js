@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/layer/LayerList.css";
-import YOLOv5 from "/Users/jungwon/Desktop/shjw/src/img/YOLOv5.png";
+import YOLOv5 from "../../img/YOLOv5.png";
 
 function InfoList(props) {
   const onDragStart = (event, nodeType, backgroundColour) => {
