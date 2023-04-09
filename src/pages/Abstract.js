@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "../styles/info/Info.css";
-import NodeScreen from "../components/common/NodeScreen";
+import AbstractNodeScreen from "../components/abstract/AbstractNodeScreen";
 import MyModal from "../components/common/MyModal";
 import "../styles/common/Modifier.css";
+import "../styles/abstract/AbstractList.css";
 import "../styles/layer/Layer.css";
 import Modifier from "../components/common/Modifier";
-import LayerList from "../components/layer/LayerList";
+import AbstractList from "../components/abstract/AbstractList";
 
 function Abstract(props) {
   const [show, setShow] = useState(false);
@@ -28,11 +29,11 @@ function Abstract(props) {
     <div className="layer_outer_container">
       <div className="aside_function_container">
         {/* 토글 관련 컴포넌트 */}
-        <LayerList />
+        <AbstractList />
       </div>
       {/* 노드 화면에 띄우는 컴포넌트 */}
       <div className="info_outer_container">
-        <NodeScreen onSelectNode={onSelectNode} />
+        <AbstractNodeScreen onSelectNode={onSelectNode} />
       </div>
     </div>
   );

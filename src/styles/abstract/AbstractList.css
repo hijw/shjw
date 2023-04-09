@@ -1,0 +1,84 @@
+/*  */
+.abstract_container {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.abstract_list {
+    width: 100%;
+    height: 100%;
+    background-color: lightgrey;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+
+}
+
+.tab_title {
+    margin-bottom: 10px;
+    margin-top: 30px;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    padding-left: 15px;
+
+}
+
+.groupInformation_button{
+
+    align-items: center;
+    text-align: center;
+    margin: auto;
+}
+
+.groupInformation_title{
+    font-size: 20px;
+    text-align: center;
+    margin: 10px;
+    font-weight: 600;
+}
+
+.groupInformation_button .btn2 {
+
+    display: inline-block;
+    width: 88px;
+    height: 25px;
+    border: 1px solid grey;
+    margin: 3px;
+    border-radius: 10px;
+    background-color: #787a82;
+    color: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0,0,0, 0.25);
+  }
+  .btn2:focus {
+    background-color: #FFFFFF;
+    color: #787a82;
+}
+.groupInformation_name {
+    font-size: 18px;
+    padding-left: 25px;
+
+}
+
+/* 토글 사이 간격 띄우기 */
+details > summary {
+    margin-top: 4%;
+}
+
+.layer_info {
+    width: 100%;
+    float: left;
+    background-color: #4e5058;
+
+}
+
+.layer_info_title {
+    text-align: center;
+    font-size: 30px;
+    padding-top: 10px;
+    font-weight: bold;
+    color: white;
+
+}
