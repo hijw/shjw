@@ -1,9 +1,11 @@
+const position = { x: 0, y: 0 };
+
 export const initialNodes = [
     {
         id: "1",
         type: "Conv2d",
         data: {label: "Con2vd"},
-        position: {x: 200, y: 100},
+        position,
         style: {
             background: "#f2e3dc",
             fontSize: "20px",
@@ -17,7 +19,7 @@ export const initialNodes = [
         id: "2",
         type: "BatchNorm2d",
         data: {label: "BatchNorm2d"},
-        position: {x: 200, y: 200},
+        position,
         style: {
             background: "#dee8e4",
             fontSize: "20px",
@@ -31,7 +33,7 @@ export const initialNodes = [
         id: "3",
         type: "ReLU",
         data: {label: "ReLU"},
-        position: {x: 200, y: 300},
+        position,
         style: {
             background: "#d9e3e8",
             fontSize: "20px",
@@ -45,7 +47,7 @@ export const initialNodes = [
         id: "4",
         type: "Conv2d",
         data: {label: "Con2vd"},
-        position: {x: 200, y: 400},
+        position,
         style: {
             background: "#f2e3dc",
             fontSize: "20px",
@@ -59,7 +61,7 @@ export const initialNodes = [
         id: "5",
         type: "BatchNorm2d",
         data: {label: "BatchNorm2d"},
-        position: {x: 200, y: 500},
+        position,
         style: {
             background: "#dee8e4",
             fontSize: "20px",
@@ -73,7 +75,7 @@ export const initialNodes = [
         id: "6",
         type: "ReLU",
         data: {label: "ReLU"},
-        position: {x: 200, y: 600},
+        position,
         style: {
             background: "#d9e3e8",
             fontSize: "20px",
@@ -87,7 +89,7 @@ export const initialNodes = [
         id: "7",
         type: "MaxPool2d",
         data: {label: "MaxPool2d"},
-        position: {x: 200, y: 700},
+        position,
         style: {
             background: "#faf1cb",
             fontSize: "20px",
@@ -101,7 +103,7 @@ export const initialNodes = [
         id: "8",
         type: "Conv2d",
         data: {label: "Con2vd"},
-        position: {x: 600, y: 100},
+        position,
         style: {
             background: "#f2e3dc",
             fontSize: "20px",
@@ -115,7 +117,7 @@ export const initialNodes = [
         id: "9",
         type: "BatchNorm2d",
         data: {label: "BatchNorm2d"},
-        position: {x: 600, y: 200},
+        position,
         style: {
             background: "#dee8e4",
             fontSize: "20px",
@@ -129,7 +131,7 @@ export const initialNodes = [
         id: "10",
         type: "ReLU",
         data: {label: "ReLU"},
-        position: {x: 600, y: 300},
+        position,
         style: {
             background: "#d9e3e8",
             fontSize: "20px",
@@ -143,7 +145,7 @@ export const initialNodes = [
         id: "11",
         type: "Conv2d",
         data: {label: "Con2vd"},
-        position: {x: 600, y: 400},
+        position,
         style: {
             background: "#f2e3dc",
             fontSize: "20px",
@@ -157,7 +159,7 @@ export const initialNodes = [
         id: "12",
         type: "BatchNorm2d",
         data: {label: "BatchNorm2d"},
-        position: {x: 600, y: 500},
+        position,
         style: {
             background: "#dee8e4",
             fontSize: "20px",
@@ -171,7 +173,7 @@ export const initialNodes = [
         id: "13",
         type: "ReLU",
         data: {label: "ReLU"},
-        position: {x: 600, y: 600},
+        position,
         style: {
             background: "#d9e3e8",
             fontSize: "20px",
@@ -185,7 +187,7 @@ export const initialNodes = [
         id: "14",
         type: "MaxPool2d",
         data: {label: "MaxPool2d"},
-        position: {x: 600, y: 700},
+        position,
         style: {
             background: "#faf1cb",
             fontSize: "20px",
