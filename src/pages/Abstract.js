@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import "../styles/info/Info.css";
 import AbstractNodeScreen from "../components/abstract/AbstractNodeScreen";
+import AbstractList from "../components/abstract/AbstractList";
 import MyModal from "../components/common/MyModal";
+import Modifier from "../components/common/Modifier";
+
 import "../styles/common/Modifier.css";
 import "../styles/abstract/AbstractList.css";
-import "../styles/layer/Layer.css";
-import Modifier from "../components/common/Modifier";
-import AbstractList from "../components/abstract/AbstractList";
+import "../styles/abstract/AbstractNodeScreen.css";
+
 
 function Abstract(props) {
   const [show, setShow] = useState(false);

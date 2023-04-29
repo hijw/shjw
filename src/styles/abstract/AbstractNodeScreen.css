@@ -4,6 +4,20 @@
     flex-grow: 1;
     align-items: center;
     text-align: center;
-    
+    align-content: center;
+}
+
+
+.reactflow-wrapper .contButtonAb {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 10;
+    font-size: 12px;
 
 }
+  
+.reactflow-wrapper .contButtonAb button:first-child {
+    margin-right: 100px;
+}
+  

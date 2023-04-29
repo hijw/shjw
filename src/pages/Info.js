@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "../styles/info/Info.css";
-import NodeScreen from "../components/common/NodeScreen";
 import "../styles/common/Modifier.css";
 import "../styles/layer/Layer.css";
+import "../styles/common/NodeScreen.css";
+
+import NodeScreen from "../components/common/NodeScreen";
 import InfoList from "../components/layer/InfoList";
 import MyModal from "../components/common/MyModal";
 import Modifier from "../components/common/Modifier";

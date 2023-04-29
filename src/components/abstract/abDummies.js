@@ -1,9 +1,11 @@
+const position = { x: 0, y: 0 };
+
 export const initialNodes = [
     {
         id: "1",
         type: "Group 1",
         data: {label: "Group 1"},
-        position: {x: 200, y: 100},
+        position,
         style: {
             background: "#ACBDDC",
             fontSize: "20px",
@@ -18,7 +20,7 @@ export const initialNodes = [
         id: "2",
         type: "Group 1",
         data: {label: "Group 1"},
-        position: {x: 200, y: 250},
+        position,
         style: {
             background: "#ACBDDC",
             fontSize: "20px",
@@ -33,7 +35,7 @@ export const initialNodes = [
         id: "3",
         type: "MaxPool2d",
         data: {label: "MaxPool2d"},
-        position: {x: 200, y: 400},
+        position,
         style: {
             background: "#faf1cb",
             fontSize: "20px",
@@ -47,7 +49,7 @@ export const initialNodes = [
         id: "4",
         type: "Group 1",
         data: {label: "Group 1"},
-        position: {x: 200, y: 500},
+        position,
         style: {
             background: "#ACBDDC",
             fontSize: "20px",
@@ -62,7 +64,7 @@ export const initialNodes = [
         id: "5",
         type: "Group 1",
         data: {label: "Group 1"},
-        position: {x: 200, y: 650},
+        position,
         style: {
             background: "#ACBDDC",
             fontSize: "20px",
@@ -77,7 +79,7 @@ export const initialNodes = [
         id: "6",
         type: "MaxPool2d",
         data: {label: "MaxPool2d"},
-        position: {x: 600, y: 100},
+        position,
         style: {
             background: "#d9e3e8",
             fontSize: "20px",
@@ -91,7 +93,7 @@ export const initialNodes = [
         id: "7",
         type: "Group 2",
         data: {label: "Group 2"},
-        position: {x: 600, y: 200},
+        position,
         style: {
             background: "#A5D5D7",
             fontSize: "20px",
@@ -106,7 +108,7 @@ export const initialNodes = [
         id: "8",
         type: "Linear",
         data: {label: "Linear"},
-        position: {x: 600, y: 350},
+        position,
         style: {
             background: "#F4E7D3",
             fontSize: "20px",

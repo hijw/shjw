@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import LayerList from "../components/layer/LayerList";
-import "../styles/common/Modifier.css";
-import "../styles/layer/Layer.css";
 import Modifier from "../components/common/Modifier";
 import NodeScreen from "../components/common/NodeScreen";
+
+import "../styles/common/Modifier.css";
+import "../styles/layer/Layer.css";
+import "../styles/common/NodeScreen.css";
 
 function Layer(props) {
   /** 서버에서 불러온 node, edge 초기화 **/

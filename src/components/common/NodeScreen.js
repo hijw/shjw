@@ -134,16 +134,17 @@ function NodeScreen({d_nodes,d_edges,onSelectNode}) {
                 onEdgesChange={onEdgesChange}
                 onConnect={onConnect}
                 onInit={setReactFlowInstance}
+                onLayout={onLayout}
                 onDrop={onDrop}
                 onDragOver={onDragOver}
                 onNodeClick={onSelectNode}
                 fitView
             >
-                <Controls/>
-                <div className="contButton">
-                    <button type="button"  onClick={() => onLayout('TB')}>vertical layout</button>
-                    <button type="button"  onClick={() => onLayout('LR')}>horizontal layout</button>
-                </div>
+              <div className="contButton">
+                  <button type="button"  onClick={() => onLayout('TB')}>vertical layout</button>
+                  <button type="button"  onClick={() => onLayout('LR')}>horizontal layout</button>
+              </div>
+              <Controls/>
             </ReactFlow>
 
         </div>

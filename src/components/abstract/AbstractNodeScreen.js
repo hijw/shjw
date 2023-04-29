@@ -1,7 +1,52 @@
 import React, {useCallback, useRef, useState} from 'react';
-import ReactFlow, {addEdge, Controls, useEdgesState, useNodesState} from "reactflow";
+import ReactFlow, {addEdge, Controls, ConnectionLineType, useEdgesState, useNodesState} from "reactflow";
 import {initialEdges, initialNodes, nodeTypes} from "./abDummies.js";
 import "../../styles/abstract/AbstractNodeScreen.css";
+import dagre from 'dagre';
+
+const dagreGraph = new dagre.graphlib.Graph();
+dagreGraph.setDefaultEdgeLabel(() => ({}));
+
+const nodeWidth = 200;
+const nodeHeight = 90;
+
+const getLayoutedElements = (nodes, edges, direction = 'TB') => {
+    const isHorizontal = direction === 'LR';
+    dagreGraph.setGraph({ rankdir: direction });
+  
+    nodes.forEach((node) => {
+      dagreGraph.setNode(node.id, { width: nodeWidth, height: nodeHeight });
+    });
+  
+    edges.forEach((edge) => {
+      dagreGraph.setEdge(edge.source, edge.target);
+    });
+  
+    dagre.layout(dagreGraph);
+  
+    nodes.forEach((node) => {
+      const nodeWithPosition = dagreGraph.node(node.id);
+      node.targetPosition = isHorizontal ? 'left' : 'top';
+      node.sourcePosition = isHorizontal ? 'right' : 'bottom';
+  
+      // We are shifting the dagre node position (anchor=center center) to the top left
+      // so it matches the React Flow node anchor point (top left).
+      node.position = {
+        x: nodeWithPosition.x - nodeWidth / 2,
+        y: nodeWithPosition.y - nodeHeight / 2,
+      };
+  
+      return node;
+    });
+  
+    return { nodes, edges };
+  };
+
+const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
+  initialNodes,
+  initialEdges
+);
+
 
 function AbstractNodeScreen({d_nodes,d_edges,onSelectNode}) {
 
@@ -17,6 +62,23 @@ function AbstractNodeScreen({d_nodes,d_edges,onSelectNode}) {
         (params) => setEdges((eds) => addEdge(params, eds)),
         []
     );
+
+    
+    const onLayout = useCallback(
+        (direction) => {
+          const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
+            nodes,
+            edges,
+            direction
+          );
+    
+          setNodes([...layoutedNodes]);
+          setEdges([...layoutedEdges]);
+        },
+        [nodes, edges]
+      );
+    
+
 
     const onDragOver = useCallback((event) => {
         event.preventDefault();
@@ -75,8 +137,13 @@ function AbstractNodeScreen({d_nodes,d_edges,onSelectNode}) {
                 onDrop={onDrop}
                 onDragOver={onDragOver}
                 onNodeClick={onSelectNode}
+                fitView
             >
                 <Controls/>
+            <div className="contButton">
+                <button onClick={() => onLayout('TB')}>vertical layout</button>
+                <button onClick={() => onLayout('LR')}>horizontal layout</button>
+            </div>
             </ReactFlow>
         </div>
     );
