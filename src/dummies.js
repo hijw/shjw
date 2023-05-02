@@ -174,6 +174,9 @@ export const initialNodes = [
         type: "ReLU",
         data: {label: "ReLU"},
         position,
+        className: 'res',
+        parentNode: '15',
+        extent: 'parent',
         style: {
             background: "#d9e3e8",
             fontSize: "20px",
@@ -181,6 +184,7 @@ export const initialNodes = [
             boxShadow: "7px 7px 7px 0px rgba(0,0,0,.20)",
             border: "0px",
             borderRadius: "10px",
+
         },
     },
     {
@@ -188,6 +192,9 @@ export const initialNodes = [
         type: "MaxPool2d",
         data: {label: "MaxPool2d"},
         position,
+        className: 'res',
+        parentNode: '15',
+        extent: 'parent',
         style: {
             background: "#faf1cb",
             fontSize: "20px",
@@ -195,8 +202,27 @@ export const initialNodes = [
             boxShadow: "7px 7px 7px 0px rgba(0,0,0,.20)",
             border: "0px",
             borderRadius: "10px",
+
         },
     },
+    {
+        id: "15",
+        type: "Residual",
+        data: {label: "Residual"},
+        position,
+        className: 'res',
+        style: {
+            background: "rgba(255, 0, 0, 0.2)",
+            fontSize: "20px",
+            width: "300px",
+            height: "300px",
+            boxShadow: "7px 7px 7px 0px rgba(0,0,0,.20)",
+            border: "0px",
+            borderRadius: "10px",
+
+        },
+    },
+
 ];
 
 export const initialEdges = [
@@ -211,7 +237,9 @@ export const initialEdges = [
     {id: "9-10", source: "9", target: "10"},
     {id: "10-11", source: "10", target: "11"},
     {id: "11-12", source: "11", target: "12"},
-    {id: "12-13", source: "12", target: "13"},
+    {id: "12-15", source: "12", target: "15"},
     {id: "13-14", source: "13", target: "14"},
+
+
 ];
 

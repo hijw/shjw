@@ -1,5 +1,5 @@
 import React, {useCallback, useRef, useState} from 'react';
-import ReactFlow, {addEdge, ConnectionLineType, Controls, useEdgesState, useNodesState} from "reactflow";
+import ReactFlow, {addEdge, Background, ConnectionLineType, Controls, useEdgesState, useNodesState} from "reactflow";
 import {initialEdges, initialNodes, nodeTypes} from "../../dummies";
 import "../../styles/common/NodeScreen.css";
 import dagre from 'dagre';
@@ -145,6 +145,7 @@ function NodeScreen({d_nodes,d_edges,onSelectNode}) {
                   <button type="button"  onClick={() => onLayout('LR')}>horizontal layout</button>
               </div>
               <Controls/>
+              <Background />
             </ReactFlow>
 
         </div>
