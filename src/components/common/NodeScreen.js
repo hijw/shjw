@@ -6,10 +6,10 @@ import dagre from 'dagre';
 
 const dagreGraph = new dagre.graphlib.Graph();
 dagreGraph.setDefaultEdgeLabel(() => ({}));
-const defaultViewport = { x: 0, y: 0, zoom: 1.5 };
 const nodeWidth = 172;
 const nodeHeight = 36;
 const resNodeWidth= 400;
+
 
 const getLayoutedElements = (nodes, edges, direction = 'TB') => {
     const isHorizontal = direction === 'LR';
@@ -32,10 +32,27 @@ const getLayoutedElements = (nodes, edges, direction = 'TB') => {
   
       // We are shifting the dagre node position (anchor=center center) to the top left
       // so it matches the React Flow node anchor point (top left).
-      node.position = {
-        x: nodeWithPosition.x - nodeWidth / 2 - (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth) / 2),
-        y: nodeWithPosition.y - nodeHeight / 2 + (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth)),
-      };
+      if(node.className.includes("resnode")){
+        if(isHorizontal){
+          node.position = {
+            x: nodeWithPosition.x - nodeWidth / 2 ,
+            y: 50,
+          }
+
+        } else{
+          node.position = {
+            x: 100,
+            y: 50 + nodeWithPosition.y - nodeHeight / 2,
+          }
+        }
+
+      } else{
+        node.position = {
+          x: nodeWithPosition.x - nodeWidth / 2 - (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth) / 2),
+          y: nodeWithPosition.y - nodeHeight / 2 + (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth)/2),
+        };
+      }
+
   
       return node;
     });
@@ -108,6 +125,7 @@ function NodeScreen({d_nodes,d_edges,onSelectNode}) {
                 type,
                 position,
                 data: {label: `${type}`},
+                className: "node",
                 style: {
                     background: `${backgroundColour}`,
                     fontSize: "20px",
@@ -138,7 +156,6 @@ function NodeScreen({d_nodes,d_edges,onSelectNode}) {
                 onLayout={onLayout}
                 onDrop={onDrop}
                 onDragOver={onDragOver}
-                defaultViewport={defaultViewport}
                 onNodeClick={onSelectNode}
                 fitView
             >

@@ -5,6 +5,7 @@ export const initialNodes = [
         id: "1",
         type: "Conv2d",
         data: {label: "Con2vd"},
+        className: 'node',
         position,
         style: {
             background: "#f2e3dc",
@@ -20,6 +21,7 @@ export const initialNodes = [
         type: "BatchNorm2d",
         data: {label: "BatchNorm2d"},
         position,
+        className: 'node',
         style: {
             background: "#dee8e4",
             fontSize: "20px",
@@ -34,6 +36,7 @@ export const initialNodes = [
         type: "ReLU",
         data: {label: "ReLU"},
         position,
+        className: 'node',
         style: {
             background: "#d9e3e8",
             fontSize: "20px",
@@ -48,6 +51,7 @@ export const initialNodes = [
         type: "Conv2d",
         data: {label: "Con2vd"},
         position,
+        className: 'node',
         style: {
             background: "#f2e3dc",
             fontSize: "20px",
@@ -62,6 +66,7 @@ export const initialNodes = [
         type: "BatchNorm2d",
         data: {label: "BatchNorm2d"},
         position,
+        className: 'node',
         style: {
             background: "#dee8e4",
             fontSize: "20px",
@@ -76,6 +81,7 @@ export const initialNodes = [
         type: "ReLU",
         data: {label: "ReLU"},
         position,
+        className: 'node',
         style: {
             background: "#d9e3e8",
             fontSize: "20px",
@@ -90,6 +96,7 @@ export const initialNodes = [
         type: "MaxPool2d",
         data: {label: "MaxPool2d"},
         position,
+        className: 'node',
         style: {
             background: "#faf1cb",
             fontSize: "20px",
@@ -104,6 +111,7 @@ export const initialNodes = [
         type: "Conv2d",
         data: {label: "Con2vd"},
         position,
+        className: 'node',
         style: {
             background: "#f2e3dc",
             fontSize: "20px",
@@ -118,6 +126,7 @@ export const initialNodes = [
         type: "BatchNorm2d",
         data: {label: "BatchNorm2d"},
         position,
+        className: 'node',
         style: {
             background: "#dee8e4",
             fontSize: "20px",
@@ -132,6 +141,7 @@ export const initialNodes = [
         type: "ReLU",
         data: {label: "ReLU"},
         position,
+        className: 'node',
         style: {
             background: "#d9e3e8",
             fontSize: "20px",
@@ -146,6 +156,7 @@ export const initialNodes = [
         type: "Conv2d",
         data: {label: "Con2vd"},
         position,
+        className: 'node',
         style: {
             background: "#f2e3dc",
             fontSize: "20px",
@@ -160,6 +171,7 @@ export const initialNodes = [
         type: "BatchNorm2d",
         data: {label: "BatchNorm2d"},
         position,
+        className: 'node',
         style: {
             background: "#dee8e4",
             fontSize: "20px",
@@ -174,6 +186,7 @@ export const initialNodes = [
         type: "ReLU",
         data: {label: "ReLU"},
         position,
+        className: 'node',
         style: {
             background: "#d9e3e8",
             fontSize: "20px",
@@ -188,6 +201,7 @@ export const initialNodes = [
         type: "MaxPool2d",
         data: {label: "MaxPool2d"},
         position,
+        className: 'node',
         style: {
             background: "#faf1cb",
             fontSize: "20px",
@@ -203,6 +217,8 @@ export const initialNodes = [
         data: {label: "Residual"},
         position,
         className: 'res',
+        //이건 어떻게 할 지 생각해봐야될듯. 얘 삭제되면 내부 전체도 삭제되게
+        deletable: false,
         style: {
             background: "rgba(255, 0, 0, 0.2)",
             fontSize: "20px",
@@ -219,10 +235,12 @@ export const initialNodes = [
         id: "16",
         type: "ReLU",
         data: {label: "ReLU"},
-        position,
-        className: 'res',
+        position: { x: 100, y: 50 },
+        className: 'resnode',
         parentNode: '15',
         extent: 'parent',
+        deletable: false,
+        connectable: false,
         style: {
             background: "#d9e3e8",
             fontSize: "20px",
@@ -237,10 +255,12 @@ export const initialNodes = [
         id: "17",
         type: "MaxPool2d",
         data: {label: "MaxPool2d"},
-        position,
-        className: 'res',
+        position: { x: 100, y: 130 },
+        className: 'resnode',
         parentNode: '15',
         extent: 'parent',
+        deletable: false,
+        connectable: false,
         style: {
             background: "#faf1cb",
             fontSize: "20px",
@@ -249,6 +269,22 @@ export const initialNodes = [
             border: "0px",
             borderRadius: "10px",
 
+        },
+    },
+
+    {
+        id: "18",
+        type: "Conv2d",
+        data: {label: "Con2vd"},
+        position,
+        className: 'node',
+        style: {
+            background: "#f2e3dc",
+            fontSize: "20px",
+            width: "200px",
+            boxShadow: "7px 7px 7px 0px rgba(0,0,0,.20)",
+            border: "0px",
+            borderRadius: "10px",
         },
     },
 ];
@@ -268,8 +304,7 @@ export const initialEdges = [
     {id: "12-13", source: "12", target: "13"},
     {id: "13-14", source: "13", target: "14"},
     {id: "14-15", source: "14", target: "15"},
-    {id: "14-16", source: "14", target: "16", animated: true},
     {id: "16-17", source: "16", target: "17"},
-
+    {id: "15-18", source: "15", target: "18"},
 ];
 
