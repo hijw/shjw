@@ -6,9 +6,10 @@ import dagre from 'dagre';
 
 const dagreGraph = new dagre.graphlib.Graph();
 dagreGraph.setDefaultEdgeLabel(() => ({}));
-
+const defaultViewport = { x: 0, y: 0, zoom: 1.5 };
 const nodeWidth = 172;
 const nodeHeight = 36;
+const resNodeWidth= 400;
 
 const getLayoutedElements = (nodes, edges, direction = 'TB') => {
     const isHorizontal = direction === 'LR';
@@ -32,8 +33,8 @@ const getLayoutedElements = (nodes, edges, direction = 'TB') => {
       // We are shifting the dagre node position (anchor=center center) to the top left
       // so it matches the React Flow node anchor point (top left).
       node.position = {
-        x: nodeWithPosition.x - nodeWidth / 2,
-        y: nodeWithPosition.y - nodeHeight / 2,
+        x: nodeWithPosition.x - nodeWidth / 2 - (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth) / 2),
+        y: nodeWithPosition.y - nodeHeight / 2 + (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth)),
       };
   
       return node;
@@ -50,7 +51,7 @@ const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
 
 function NodeScreen({d_nodes,d_edges,onSelectNode}) {
 
-    let id = 15;
+    let id = 20;
     const getId = () => `${id++}`
 
     const reactFlowWrapper = useRef(null);
@@ -137,6 +138,7 @@ function NodeScreen({d_nodes,d_edges,onSelectNode}) {
                 onLayout={onLayout}
                 onDrop={onDrop}
                 onDragOver={onDragOver}
+                defaultViewport={defaultViewport}
                 onNodeClick={onSelectNode}
                 fitView
             >
