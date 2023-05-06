@@ -42,6 +42,10 @@
   background-color: #dee8e4;
 }
 
+/* residualblock */
+.dndflow .dndnode.ResidualBlock {
+  background-color: #e0d8e4;
+}
 
 .dndflow .selectall {
   margin-top: 10px;
