@@ -9,7 +9,7 @@ dagreGraph.setDefaultEdgeLabel(() => ({}));
 const nodeWidth = 172;
 const nodeHeight = 36;
 const resNodeWidth= 400;
-
+const sort = 7;
 
 const getLayoutedElements = (nodes, edges, direction = 'TB') => {
     const isHorizontal = direction === 'LR';
@@ -47,13 +47,27 @@ const getLayoutedElements = (nodes, edges, direction = 'TB') => {
         }
 
       } else{
-        node.position = {
-          x: nodeWithPosition.x - nodeWidth / 2 - (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth) / 2),
-          y: nodeWithPosition.y - nodeHeight / 2 + (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth)/2),
-        };
+
+        if(isHorizontal){
+          node.position = {
+            x: nodeWithPosition.x - nodeWidth / 2 + (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth) / 2),
+            y: nodeWithPosition.y - nodeHeight / 2 - (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth)/2),
+          };
+        }
+        else{
+          // node.position = {
+          //   x: Math.floor(node.id /(sort + 1) ) * 300  + resNodeWidth /2,
+          //   y: (node.id % sort === 0 ? sort * 100 : (node.id % sort ) * 100) - nodeHeight /2  ,
+          // };
+          node.position = {
+            x: nodeWithPosition.x - nodeWidth / 2 - (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth) / 2),
+            y: nodeWithPosition.y - nodeHeight / 2 + (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth)/5),
+          };
+        }
+        
+ 
       }
 
-  
       return node;
     });
   
@@ -122,7 +136,7 @@ function NodeScreen({d_nodes,d_edges,onSelectNode}) {
 
             const newNode = {
                 id: getId(),
-                type,
+                type: "node",
                 position,
                 data: {label: `${type}`},
                 className: "node",

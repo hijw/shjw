@@ -232,7 +232,7 @@ export const initialNodes = [
     },
 
     {
-        id: "16",
+        id: "15-1",
         type: "ReLU",
         data: {label: "ReLU"},
         position: { x: 100, y: 50 },
@@ -252,7 +252,7 @@ export const initialNodes = [
         },
     },
     {
-        id: "17",
+        id: "15-2",
         type: "MaxPool2d",
         data: {label: "MaxPool2d"},
         position: { x: 100, y: 130 },
@@ -273,7 +273,7 @@ export const initialNodes = [
     },
 
     {
-        id: "18",
+        id: "16",
         type: "Conv2d",
         data: {label: "Con2vd"},
         position,
@@ -304,7 +304,7 @@ export const initialEdges = [
     {id: "12-13", source: "12", target: "13"},
     {id: "13-14", source: "13", target: "14"},
     {id: "14-15", source: "14", target: "15"},
-    {id: "16-17", source: "16", target: "17"},
-    {id: "15-18", source: "15", target: "18"},
+    {id: "15-1-15-2", source: "15-1", target: "15-2"},
+    {id: "15-16", source: "15", target: "16"},
 ];
 
