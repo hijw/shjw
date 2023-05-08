@@ -24,7 +24,7 @@ const getLayoutedElements = (nodes, edges, direction = 'TB') => {
     });
   
     dagre.layout(dagreGraph);
-  
+
     nodes.forEach((node) => {
       const nodeWithPosition = dagreGraph.node(node.id);
       node.targetPosition = isHorizontal ? 'left' : 'top';
@@ -38,11 +38,22 @@ const getLayoutedElements = (nodes, edges, direction = 'TB') => {
             x: nodeWithPosition.x - nodeWidth / 2 ,
             y: 50,
           }
-
+          if(node.className.includes("+")){
+            node.position = {
+              x: 800,
+              y: 350,
+            }
+          }
         } else{
           node.position = {
-            x: 100,
+            x: 80,
             y: 50 + nodeWithPosition.y - nodeHeight / 2,
+          }
+        }
+        if(node.className.includes("+")){
+          node.position = {
+            x: 350,
+            y: 310,
           }
         }
 
@@ -56,13 +67,31 @@ const getLayoutedElements = (nodes, edges, direction = 'TB') => {
         }
         else{
           // node.position = {
-          //   x: Math.floor(node.id /(sort + 1) ) * 300  + resNodeWidth /2,
+          //   x: Math.floor(node.id /(sort + 1) ) * 300  + (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth) ),
           //   y: (node.id % sort === 0 ? sort * 100 : (node.id % sort ) * 100) - nodeHeight /2  ,
           // };
+          // node.position = {
+          //   x: nodeWithPosition.x - nodeWidth / 2 - (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth) / 2),
+          //   y: nodeWithPosition.y - nodeHeight / 2 + (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth)/5),
+          // };
+
           node.position = {
             x: nodeWithPosition.x - nodeWidth / 2 - (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth) / 2),
             y: nodeWithPosition.y - nodeHeight / 2 + (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth)/5),
           };
+
+          // if( node.position.y  >= 500 ){
+          //   node.position = {
+          //     x: nodeWithPosition.x - nodeWidth / 2 - (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth) / 2) + 300,
+          //     y: nodeWithPosition.y - nodeHeight / 2 + (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth)/5) - 600 ,
+          //   }
+          // }
+          if( node.position.y  >= 500 ){
+            node.position = {
+              x: nodeWithPosition.x - nodeWidth / 2 - (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth) / 2) + 300,
+              y: nodeWithPosition.y - nodeHeight / 2 + (node.type.includes("Residual") ? 0 : (nodeWidth - resNodeWidth)/5) - 600 ,
+            }
+          }
         }
         
  
@@ -178,7 +207,6 @@ function NodeScreen({d_nodes,d_edges,onSelectNode}) {
                   <button type="button"  onClick={() => onLayout('LR')}>horizontal layout</button>
               </div>
               <Controls/>
-              <Background />
             </ReactFlow>
 
         </div>
