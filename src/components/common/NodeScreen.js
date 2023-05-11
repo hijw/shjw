@@ -7,7 +7,8 @@ import ReactFlow, {
 } from "reactflow";
 import { initialEdges, initialNodes, nodeTypes } from "../../dummies";
 import "../../styles/common/NodeScreen.css";
-import ResidualBlock from "../../img/res_block.png"; // residual block 사진나오게
+import BottleNeck from "../../img/bottleneck.png"; // residual block 사진나오게
+import BasicBlock from "../../img/basicblock.png";
 
 function NodeScreen({ d_nodes, d_edges, onSelectNode }) {
   let id = 15;
@@ -59,8 +60,8 @@ function NodeScreen({ d_nodes, d_edges, onSelectNode }) {
           borderRadius: "10px",
         },
       };
-      const newResidualNode = {
-        // 노드 내부에 residual block 이미지 넣기
+      const newResidualNode1 = {
+        // 노드 내부에 residual block 이미지 넣기 - bottleneck
         id: getId(),
         type,
         position,
@@ -68,21 +69,45 @@ function NodeScreen({ d_nodes, d_edges, onSelectNode }) {
           background: `${backgroundColour}`,
           fontSize: "20px",
           width: "200px",
-          height: "250px",
+          height: "500px",
           boxShadow: "7px 7px 7px 0px rgba(0,0,0,.20)",
           border: "0px",
           borderRadius: "10px",
-          backgroundImage: `url(${ResidualBlock})`, //사진 나오게
+          backgroundImage: `url(${BottleNeck})`, //사진 나오게
           backgroundPosition: "center",
-          backgroundSize: "200px 250px",
+          backgroundSize: "180px 500px",
+          backgroundRepeat: "no-repeat",
+        },
+      };
+      const newResidualNode2 = {
+        // 노드 내부에 residual block 이미지 넣기 - basic block
+        id: getId(),
+        type,
+        position,
+        style: {
+          background: `${backgroundColour}`,
+          fontSize: "20px",
+          width: "200px",
+          height: "340px",
+          boxShadow: "7px 7px 7px 0px rgba(0,0,0,.20)",
+          border: "0px",
+          borderRadius: "10px",
+          backgroundImage: `url(${BasicBlock})`, //사진 나오게
+          backgroundPosition: "center",
+          backgroundSize: "180px 340px",
           backgroundRepeat: "no-repeat",
         },
       };
 
-      if (type == "ResidualBlock") {
+      if (type == "BottleNeck") {
         // residual block일 경우
-        setNodes((nds) => nds.concat(newResidualNode));
-      } else {
+        setNodes((nds) => nds.concat(newResidualNode1));
+      } 
+      else if (type == "BasicBlock") {
+        // residual block일 경우
+        setNodes((nds) => nds.concat(newResidualNode2));
+      } 
+      else {
         setNodes((nds) => nds.concat(newNode));
       }
 
