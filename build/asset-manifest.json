@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d0a492fe.css",
+    "main.js": "/static/js/main.cbfe4496.js",
+    "static/media/YOLOv5.png": "/static/media/YOLOv5.5a50d55b99c41810f990.png",
+    "index.html": "/index.html",
+    "main.d0a492fe.css.map": "/static/css/main.d0a492fe.css.map",
+    "main.cbfe4496.js.map": "/static/js/main.cbfe4496.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d0a492fe.css",
+    "static/js/main.cbfe4496.js"
+  ]
+}

@@ -165,8 +165,12 @@ export const NormalizationLayers = ({ onDragStart }) => {
 export const ResidualBlockLayers = ({ onDragStart }) => {
   const toggleItems = [
     {
-      nodeName: "ResidualBlock",
-      nodeColor: "#E0D8E4", //새로 생기는 노드 색
+      nodeName: "BasicBlock",
+      nodeColor: "#EBEBEB", //새로 생기는 노드 색
+    },
+    {
+      nodeName: "BottleNeck",
+      nodeColor: "#EBEBEB", //새로 생기는 노드 색
     },
   ];
 
